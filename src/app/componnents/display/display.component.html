@@ -1,0 +1,58 @@
+<div class="container-bg">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div
+          class="card"
+          style="width: 100%; margin-top: 50%; margin-left: 25%"
+        >
+          <div class="card-body">
+            <h5 class="card-title">End date Calculator</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              Please Enter Starting Date and Number of dates
+            </h6>
+            <div class="card-data">
+              <label>Starting date</label>
+              <input
+                class="form-control"
+                type="Date"
+                placeholder="Startting Dates"
+                aria-label="default input example"
+                [(ngModel)]="startingDate"
+                [min]="minDate"
+                (input)="updateMinDate($event.target.value)"
+              />
+              <br />
+              <label>Number of Dates </label>
+              <input
+                [(ngModel)]="numberOfDates"
+                class="form-control"
+                type="number"
+                aria-label="default input example"
+                min="1"
+                step="1"
+              />
+              <br />
+              <button type="button" class="btn btn-primary" *ngIf="endDate">
+                Your end Date will be
+                <span class="badge text-bg-secondary">{{
+                  endDate | date : "yyyy/MM/dd"
+                }}</span>
+              </button>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="generateEndDate()"
+            >
+              Generate
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</div>
